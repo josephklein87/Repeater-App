@@ -1,5 +1,9 @@
 // import axios from 'axios';
 import React, {useState, useEffect} from 'react'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Box from "@mui/material/Box";
+import '../App.css';
 
 function Mainpage() {
     let [userWords, setUserWords] = useState([]);
@@ -30,7 +34,7 @@ function Mainpage() {
             let wordUsed = false
             //checks against common words to exclude them from the list
             for (let common = 0; common < commonWords.length; common++) {
-                if (splitWords[i] === commonWords[common]) {
+                if (splitWords[i] === commonWords[common].toUpperCase()) {
                     wordUsed = true
                 }
             }
@@ -66,10 +70,27 @@ function Mainpage() {
 
     return (
      <>
-     <form onSubmit={createWords}>
-        <textarea id="textbox"></textarea>
-        <input type ="submit"></input>
-     </form>
+        <h1 className='readpeat-header'>READPEAT</h1>
+        <p className='paragraph'>Is your writing repetitive?</p>
+        <p className='paragraph'>Copy paste your work into the box below and the app will check for repeated words.</p>
+        <form onSubmit={createWords}>
+        <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="60vh"
+        >   
+            <TextField
+            id="outlined-multiline-static"
+            className='text-field'
+            label="Your words go here"
+            multiline
+            rows={10}
+            />
+            <Button variant="contained" type="submit" className='submit-button' sx={{mt:2}}>Submit</Button>
+        </Box>
+        </form>
      </>
     );
   }
