@@ -69,9 +69,10 @@ function Mainpage(props) {
 
     return (
      <>
-        <h1 className='readpeat-header'>repetitious</h1>
-        <p className='paragraph'>A simple app to check your writing for repetitive words.</p>
-        <p className='paragraph'>Copy paste a sample into the box below and see a breakdown of your word usage.</p>
+        <h1 className='readpeat-header'>repetitious.</h1>
+        <p className='paragraph'>Welcome!</p>
+        <p className='paragraph'>You can use this app to check your writing for repetitive words.</p>
+        <p className='paragraph'>Copy paste a sample into the box below to see the breakdown and find synonyms.</p>
         <form onSubmit={createWords}>
         <Box
         display="flex"
@@ -81,13 +82,33 @@ function Mainpage(props) {
         minHeight="60vh"
         >   
             <TextField
-            id="outlined-multiline-static"
-            className='text-field'
-            label="Your words go here"
-            multiline
-            rows={10}
-            />
-            <Button variant="contained" type="submit" className='submit-button' sx={{mt:2}}>Submit</Button>
+                    id="outlined-multiline-static"
+                    className='text-field'
+                    label="Your words go here"
+                    multiline
+                    rows={10}
+                    sx={{
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            "& > fieldset": {
+                                borderColor: "#db8539"
+                                }
+                        },
+                        "& .MuiFormLabel-root.Mui-focused": {
+                            color: '#db8539'
+                            }
+                      }}
+                />
+                <Button 
+                    variant="contained" 
+                    type="submit" 
+                    className='submit-button' 
+                    sx={{mt:2, 
+                    backgroundColor:"#db8539", 
+                    "&:hover": {
+                        backgroundColor: "#b5651f"
+                    }}} >
+                        Submit
+                </Button>
         </Box>
         </form>
      </>
