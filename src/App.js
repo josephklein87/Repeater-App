@@ -4,9 +4,11 @@ import React, {useState, useEffect} from 'react'
 import Mainpage from './components/mainpage';
 
 function App() {
+  let [userWords, setUserWords] = useState([]);
+
   return (
    <>
-   <Mainpage />
+   <Mainpage userWords={userWords} setUserWords={setUserWords}/>
    </>
   );
 }

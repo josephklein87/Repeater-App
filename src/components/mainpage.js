@@ -5,8 +5,7 @@ import Button from '@mui/material/Button';
 import Box from "@mui/material/Box";
 import '../App.css';
 
-function Mainpage() {
-    let [userWords, setUserWords] = useState([]);
+function Mainpage(props) {
     let [repeatedObject, setRepeatedObject] = useState({});
 
    const commonWords = 
@@ -64,15 +63,15 @@ function Mainpage() {
                 } 
             }
         }
-        setUserWords(repeats)
-        console.log(userWords)
+        props.setUserWords(repeats)
+        console.log(props.userWords)
     }
 
     return (
      <>
-        <h1 className='readpeat-header'>READPEAT</h1>
-        <p className='paragraph'>Is your writing repetitive?</p>
-        <p className='paragraph'>Copy paste your work into the box below and the app will check for repeated words.</p>
+        <h1 className='readpeat-header'>repetitious</h1>
+        <p className='paragraph'>A simple app to check your writing for repetitive words.</p>
+        <p className='paragraph'>Copy paste a sample into the box below and see a breakdown of your word usage.</p>
         <form onSubmit={createWords}>
         <Box
         display="flex"
