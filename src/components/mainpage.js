@@ -79,7 +79,7 @@ function Mainpage(props) {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        minHeight="60vh"
+        minHeight="400px"
         >   
             <TextField
                     id="outlined-multiline-static"

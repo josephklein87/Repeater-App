@@ -6,7 +6,8 @@
 }
 
 html {
-  background-color: rgb(240, 227, 213);
+  background-image: url("./images/paper background.png")
+  /* rgb(240, 227, 213); */
 }
 
 .submit-button {
