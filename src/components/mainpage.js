@@ -95,19 +95,20 @@ function Mainpage(props) {
                         },
                         "& .MuiFormLabel-root.Mui-focused": {
                             color: '#db8539'
-                            }
+                        }
                       }}
                 />
                 <Button 
                     variant="contained" 
                     type="submit" 
                     className='submit-button' 
-                    sx={{mt:2, 
+                    sx={{mt:4, 
                     backgroundColor:"#db8539", 
                     "&:hover": {
                         backgroundColor: "#b5651f"
-                    }}} >
-                        Submit
+                    }, fontFamily: 'Playfair Display',
+                        fontSize: "18px"}} >
+                        begin
                 </Button>
         </Box>
         </form>
