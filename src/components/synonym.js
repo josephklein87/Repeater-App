@@ -3,21 +3,33 @@ import axios from 'axios';
 import '../App.css';
 
 function Synonym(props) {
-    let [synonyms, setSynonyms] = useState([]);
+    let [synonymsList, setSynonymsList] = useState([]);
+    let found = false
     
     const synonymFinder = () => {
-        axios.get(`https://api.datamuse.com/words?rel_syn=${props.word}`).then((res)=>{
-        console.log(res.data)
-            setSynonyms(res.data)
-        })
-    }
+        // axios.get(`https://api.datamuse.com/words?rel_syn=${props.word}`).then((res)=>{
+        // console.log(res.data)
+        //     setSynonyms(res.data)
+        // })
+        if (found === false) {
+        axios.get(`https://api.api-ninjas.com/v1/thesaurus?word=${props.word}`, {
+            headers: {'X-Api-Key': process.env.REACT_APP_API_KEY}},
+            ).then((res)=>{
+                console.log(res.data.synonyms)
+                    setSynonymsList(res.data.synonyms)
+                    found = true
+    })
+        }}
 
-    synonymFinder()
+    useEffect(() => {
+        synonymFinder();
+    }, [])
+    
 
     return (
         <>
-            {synonyms.map((synonym)=>{
-                return <p>{synonym.word}</p>
+            {synonymsList.map((synonym)=>{
+                return <p className='synonym-single'>{synonym}</p>
             })}
         </>
     )

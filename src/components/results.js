@@ -36,15 +36,18 @@ function Results(props) {
                         fontSize: "18px"}} >
                         back    
                 </Button>
-                <p className='paragraph'>These are the words that repeat in your writing.</p>
+                <p className='paragraph'>These are the words that repeat in your writing and their synonyms.</p>
                 <p className='paragraph'>Some common words have been eliminated.</p>    
                 <Box
                     display="flex"
-                    flexDirection="row"
+                    flexDirection="column"
                     justifyContent="center"
                     alignItems="center"
                     flexWrap="wrap"
                     className="word-box"
+                    sx={{
+                        width: "60%"
+                    }}
                 >  
                     {       
                     props.userWords.map((words)=>{
