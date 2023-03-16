@@ -6,11 +6,27 @@ import Results from './components/results';
 
 function App() {
   let [userWords, setUserWords] = useState([]);
+  let [pageState, setPageState] = useState("mainpage")
 
   return (
    <>
-   <Mainpage userWords={userWords} setUserWords={setUserWords}/>
-   <Results userWords={userWords} />
+   {pageState === "mainpage" ? 
+      <Mainpage 
+        setPageState={setPageState} 
+        userWords={userWords} 
+        setUserWords={setUserWords}
+      /> 
+      : 
+      null
+    }
+    {pageState === "results" ? 
+      <Results 
+        setPageState={setPageState} 
+        userWords={userWords} 
+      />
+      :
+      null
+    }
    </>
   );
 }

@@ -23,6 +23,12 @@ function Mainpage(props) {
    "find","long","down","did","get","come","made",
    "may"];
 
+    const clearBox = () =>{
+        document.getElementById("outlined-multiline-static").value = ""
+        props.setPageState("results")
+        console.log("hello")
+    }
+
     const createWords = (e) => {
         e.preventDefault();
         let words = document.querySelector("textarea").value;
@@ -63,8 +69,16 @@ function Mainpage(props) {
                 } 
             }
         }
+
+        //method to sort the array from highest repeat to lowest
+        repeats.sort(function (x, y) {
+            return y.count - x.count;
+        });
+
+        //sets userWords state to the array passing it into the main js file
         props.setUserWords(repeats)
         console.log(props.userWords)
+        clearBox()
     }
 
     return (

@@ -1,10 +1,17 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from "@mui/material/Box";
 import '../App.css';
+import Synonym from './synonym';
 
 function Results(props) {
+
+    const backFunction = () => {
+        props.setPageState("mainpage")
+    }
+
 
    return (
     <>
@@ -20,6 +27,7 @@ function Results(props) {
                 variant="contained" 
                     type="submit" 
                     className='back-button' 
+                    onClick={backFunction}
                     sx={{mb: 5,
                     backgroundColor:"#db8539", 
                     "&:hover": {
@@ -35,6 +43,7 @@ function Results(props) {
                     flexDirection="row"
                     justifyContent="center"
                     alignItems="center"
+                    flexWrap="wrap"
                     className="word-box"
                 >  
                     {       
@@ -46,6 +55,9 @@ function Results(props) {
                                         <h5 className='word-word'>{words.word}</h5>
                                         <div className='count-container'>
                                             {words.count}
+                                        </div>
+                                        <div className='synonyms-container'>
+                                            <Synonym word={words.word} />
                                         </div>
                                     </div>
                                 </>
